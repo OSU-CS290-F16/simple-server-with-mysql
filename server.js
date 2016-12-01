@@ -35,16 +35,6 @@ mysqlConnection.connect(function(err) {
 });
 
 /*
- * Do some preprocessing on our data to make special note of people 65 or
- * older.
- */
-// Object.keys(people).forEach(function (person) {
-//   if (people[person].age >= 65) {
-//     people[person].is65OrOlder = true;
-//   }
-// });
-
-/*
  * Set up Express to use express-handlebars as the view engine.  This means
  * that when you call res.render('page'), Express will look in `views/` for a
  * file named `page` (express-handlebars will recognize the .handlebars
