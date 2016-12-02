@@ -24,17 +24,6 @@ var mysqlConnection = mysql.createConnection({
 });
 
 /*
- * Make a connection to our MySQL database.  This connection will persist for
- * as long as our server is running.
- */
-mysqlConnection.connect(function(err) {
-  if (err) {
-    console.log("== Unable to make connection to MySQL Database.")
-    throw err;
-  }
-});
-
-/*
  * Set up Express to use express-handlebars as the view engine.  This means
  * that when you call res.render('page'), Express will look in `views/` for a
  * file named `page` (express-handlebars will recognize the .handlebars
@@ -229,7 +218,17 @@ app.get('*', function(req, res) {
   });
 });
 
-// Listen on the specified port.
-app.listen(port, function () {
-  console.log("== Listening on port", port);
+/*
+ * Make a connection to our MySQL database.  This connection will persist for
+ * as long as our server is running.  Start the server listening on the
+ * specified port if we succeeded in opening the connection.
+ */
+mysqlConnection.connect(function(err) {
+  if (err) {
+    console.log("== Unable to make connection to MySQL Database.")
+    throw err;
+  }
+  app.listen(port, function () {
+    console.log("== Listening on port", port);
+  });
 });
