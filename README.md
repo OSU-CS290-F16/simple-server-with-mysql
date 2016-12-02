@@ -15,5 +15,5 @@ This will start the server running on port 3000 by default.  You can change the 
 
 This repo includes a file `db.sql` that you can use to initialize a database to work with this app.  From a machine with `mysql` installed, you can run this command to import the info from `db.sql` into your database:
 ```
-mysql -h<MYSQL_HOSTNAME> -u<MYSQL_USERNAME> -p <MYSQL_DB_NAME> < db.sql
+mysql -h <MYSQL_HOSTNAME> -u <MYSQL_USERNAME> -p <MYSQL_DB_NAME> < db.sql
 ```
